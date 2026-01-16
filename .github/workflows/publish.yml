@@ -26,7 +26,7 @@ jobs:
       - run: |
           python -m tools.src.publish_to_hf \
             --version ${GITHUB_REF#refs/tags/} \
-            --org Cactus-Compute \
+            --org jakmro \
             --precision MIXED \
             --bits 8
         env:
