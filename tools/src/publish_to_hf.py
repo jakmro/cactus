@@ -46,7 +46,7 @@ def sha256(file):
 
 def zip_dir(source_dir, output_path):
     subprocess.run(
-        ["zip", "-r", "-9", str(output_path), "."],
+        ["zip", "-X", "-r", "-9", str(output_path), "."],
         cwd=source_dir,
         check=True,
         capture_output=True,
