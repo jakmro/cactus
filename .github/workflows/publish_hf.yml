@@ -1,5 +1,6 @@
 name: Publish to Hugging Face
 
+
 on:
   release:
     types: [published]
