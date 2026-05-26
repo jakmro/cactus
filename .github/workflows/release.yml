@@ -6,6 +6,9 @@ on:
 
 jobs:
   pypi:
+    permissions:
+      id-token: write
+      contents: read
     uses: ./.github/workflows/pypi.yml
 
   homebrew:
