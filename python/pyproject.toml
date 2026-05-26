@@ -1,5 +1,5 @@
 [project]
-name = "cactus-compute"
+name = "cactus-compute-test"
 dynamic = ["version"]
 description = "On-device AI inference — LLM, vision, speech, embeddings, and RAG"
 readme = "README.md"

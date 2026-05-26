@@ -6,7 +6,7 @@ from pathlib import Path as _Path
 
 def _read_version():
     try:
-        return _version("cactus-compute")
+        return _version("cactus-compute-test")
     except PackageNotFoundError:
         pass
     vfile = _Path(__file__).resolve().parent.parent.parent / "CACTUS_VERSION"

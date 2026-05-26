@@ -27,7 +27,7 @@ jobs:
           tag = os.environ["TAG"]
           token = os.environ["HOMEBREW_TAP_TOKEN"]
           version = tag.lstrip("v") + ".0"
-          url = f"https://files.pythonhosted.org/packages/source/c/cactus-compute/cactus_compute-{version}.tar.gz"
+          url = f"https://files.pythonhosted.org/packages/source/c/cactus-compute-test/cactus_compute_test-{version}.tar.gz"
 
           for attempt in range(5):
               try:
@@ -50,7 +50,7 @@ jobs:
             depends_on "python@3.12"
             def install
               venv = virtualenv_create(libexec, "python3.12")
-              venv.pip_install "cactus-compute==#{{version}}"
+              venv.pip_install "cactus-compute-test==#{{version}}"
               bin.install_symlink libexec/"bin/cactus"
             end
             test do
@@ -59,7 +59,7 @@ jobs:
           end
           '''
 
-          subprocess.run(["git", "clone", f"https://x-access-token:{token}@github.com/cactus-compute/homebrew-cactus.git", "tap"], check=True)
+          subprocess.run(["git", "clone", f"https://x-access-token:{token}@github.com/jakmro/homebrew-cactus.git", "tap"], check=True)
           os.chdir("tap")
           pathlib.Path("Formula/cactus.rb").write_text(formula)
           subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
@@ -69,9 +69,9 @@ jobs:
           subprocess.run(["git", "push", "origin", "main"], check=True)
           SCRIPT
 
-  docs:
-    permissions:
-      contents: write
-    uses: ./.github/workflows/docs.yml
-    with:
-      version: ${{ github.event.release.tag_name }}
+  # docs:
+  #   permissions:
+  #     contents: write
+  #   uses: ./.github/workflows/docs.yml
+  #   with:
+  #     version: ${{ github.event.release.tag_name }}
