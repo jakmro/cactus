@@ -19,8 +19,8 @@ jobs:
     needs: pypi
     runs-on: ubuntu-24.04
     env:
-      PACKAGE: cactus-compute
-      TAP: cactus-compute/homebrew-cactus
+      PACKAGE: cactus-compute-test
+      TAP: jakmro/homebrew-cactus
       TAG: ${{ github.event.release.tag_name }}
     steps:
       - name: Resolve version
